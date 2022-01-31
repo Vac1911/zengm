@@ -4,6 +4,7 @@ import connectLeague, { LeagueDB } from "./connectLeague";
 import connectMeta, { MetaDB } from "./connectMeta";
 import * as getCopies from "./getCopies";
 import * as getCopy from "./getCopy";
+import MiniDb from "./miniDb";
 
 const idb: {
 	cache: Cache;
@@ -21,7 +22,9 @@ const idb: {
 	meta: undefined,
 };
 
-export { Cache, connectLeague, connectMeta, idb };
+const mdb = new MiniDb(idb);
+
+export { Cache, connectLeague, connectMeta, idb, mdb };
 export { default as getAll } from "./getAll";
 export { default as iterate } from "./iterate";
 export { default as reset } from "./reset";
